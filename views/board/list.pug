@@ -1,10 +1,10 @@
 extends ../layout/board.pug
 block top
 	.jumbotron.my-3
-		h1 게시글 리스트
-			small 게시글의 리스트를 보여줍니다
+		h3 게시글 리스트
+			small.ml-3.f-125.grey 게시글의 리스트를 보여줍니다
 block content
-	table.table.table-bordered.table-hover
+	table.table.table-bordered.table-hover.text-center
 		thead.thead-dark
 			tr
 				th 번호
@@ -16,7 +16,7 @@ block content
 		tbody
 			tr
 				td 1
-				td 아버지를 아버지라...
+				td.text-left 아버지를 아버지라...
 				td 홍길동
 				td 1650-03-15
 				td
