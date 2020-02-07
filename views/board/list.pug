@@ -14,11 +14,12 @@ block content
 				th 첨부파일
 				th 조회수
 		tbody
-			tr
-				td 1
-				td.text-left 아버지를 아버지라...
-				td 홍길동
-				td 1650-03-15
-				td
-					i.fa.fa-image
-				td 3500
+			each v in result
+				tr
+					td= v.id
+					td.text-left= v.title
+					td= v.writer
+					td= v.wdate
+					td
+						i.fa.fa-image
+					td= v.rnum

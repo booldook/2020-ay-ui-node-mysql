@@ -28,7 +28,10 @@ app.get('/', (req, res) => {
 });
 
 app.get('/board/list', (req, res) => {
-	res.render('board/list.pug');
+	let sql = 'SELECT * FROM board ORDER BY id DESC';
+	connect.execute(sql, (err, result, field) => {
+		res.render('board/list.pug', {result});
+	});
 });
 
 app.get('/board/write', (req, res) => {
@@ -47,14 +50,13 @@ app.post('/board/save/', (req, res) => {
 	let title = req.body.title;
 	let writer = req.body.writer;
 	let comment = req.body.comment;
-	let sql = `
-	INSERT INTO board SET 
-	title = '${title}',
-	writer = '${writer}',
-	comment = '${comment}'`;
-	let value = [];
-	connect.execute(sql, value, function(err, result, field){
-		res.json(result);
+	/*
+	let sql = `INSERT INTO board SET title = '${title}', writer = '${writer}', comment = '${comment}'`;
+	*/
+	let sql = "INSERT INTO board SET title=?, writer=?, comment=?";
+	let value = [title, writer, comment];
+	connect.execute(sql, value, (err, result, field) => {
+		res.redirect("/board/list");
 	});
 });
 

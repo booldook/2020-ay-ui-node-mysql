@@ -24,5 +24,8 @@ img = '',
 rnum = 0
 ~~~
 2. 조회/Read/SELECT
+~~~sql
+SELECT * FROM board ORDER BY id DESC;
+~~~
 3. 수정/Update/UPDATE
 4. 삭제/Delete/DELETE
