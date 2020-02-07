@@ -1,5 +1,12 @@
 const express = require('express');
 const app = express();
+const mysql = require("mysql2");
+const connect = mysql.createConnection({
+	host: "127.0.0.1",
+	user: "root",
+	password: "000000",
+	database: "node"
+});
 
 app.listen(3000, () => {
 	console.log("http://127.0.0.1:3000");
@@ -9,6 +16,8 @@ app.listen(3000, () => {
 app.locals.pretty = true;
 app.set("view engine", "pug");
 app.set("views", "./views");
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
 
 
 /********* Route *********/
@@ -33,3 +42,19 @@ app.get('/board/update', (req, res) => {
 app.get('/board/view', (req, res) => {
 	res.render('board/view.pug');
 });
+
+app.post('/board/save/', (req, res) => {
+	let title = req.body.title;
+	let writer = req.body.writer;
+	let comment = req.body.comment;
+	let sql = `
+	INSERT INTO board SET 
+	title = '${title}',
+	writer = '${writer}',
+	comment = '${comment}'`;
+	let value = [];
+	connect.execute(sql, value, function(err, result, field){
+		res.json(result);
+	});
+});
+
