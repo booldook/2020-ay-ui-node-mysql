@@ -428,3 +428,9 @@ border: 1px solid #f8f8f8; outline: none;}
 .opa-light:hover {opacity: 0.7;}
 
 .cp {cursor: pointer;}
+
+
+/* Bootstrap */
+.col-0, .col-sm-0, .col-md-0, .col-lg-0, .col-xl-0 {
+	display: none;
+}
