@@ -4,20 +4,24 @@ block top
 		h3 게시글 작성
 			small.ml-3.f-125.grey 게시글을 작성합니다.
 block content
-	form.border(method="post" name="boardForm" action="/board/save")
-		.border-bottom.row.mx-0
-			.d-none.d-sm-block.col-sm-3.p-3 제목
-			.col-12.col-sm-9.p-1
-				input.form-control.f-1(type="text" name="title" placeholder="제목을 작성하세요")
-		.border-bottom.row.mx-0
-			.d-none.d-sm-block.col-sm-3.p-3 작성자
-			.col-12.col-sm-9.p-1
-				input.form-control.f-1(type="text" name="writer" placeholder="작성자를 작성하세요")
-		.border-bottom.row.mx-0
-			.d-none.d-sm-block.col-sm-3.p-3 이미지
-			.col-12.col-sm-9.p-1
-				input.form-control-file.f-1(type="file" name="file")
-		.row.mx-0
-			.d-none.d-sm-block.col-sm-3.p-3 내용
-			.col-12.col-sm-9.p-1
-				textarea.form-control.f-1(name="comment" placeholder="내용을 작성하세요")
+	form(method="post" name="boardForm" action="/board/save")
+		.border
+			.border-bottom.row.mx-0
+				.d-none.d-sm-block.col-sm-3.p-3 제목
+				.col-12.col-sm-9.p-1
+					input.form-control.f-1(type="text" name="title" placeholder="제목을 작성하세요")
+			.border-bottom.row.mx-0
+				.d-none.d-sm-block.col-sm-3.p-3 작성자
+				.col-12.col-sm-9.p-1
+					input.form-control.f-1(type="text" name="writer" placeholder="작성자를 작성하세요")
+			.border-bottom.row.mx-0
+				.d-none.d-sm-block.col-sm-3.p-3 이미지
+				.col-12.col-sm-9.p-1
+					input.form-control-file.f-1(type="file" name="file")
+			.row.mx-0
+				.d-none.d-sm-block.col-sm-3.p-3 내용
+				.col-12.col-sm-9.p-1
+					textarea.form-control.f-1(name="comment" placeholder="내용을 작성하세요")
+		.p-3.text-center
+			button.btn.btn-primary 저장
+			button.btn.btn-danger(type="reset") 다시작성
