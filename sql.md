@@ -29,3 +29,6 @@ SELECT * FROM board ORDER BY id DESC;
 ~~~
 3. 수정/Update/UPDATE
 4. 삭제/Delete/DELETE
+~~~sql
+DELETE FROM board WHERE id=4;
+~~~

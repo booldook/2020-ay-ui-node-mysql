@@ -25,5 +25,5 @@ block content
 						i.fa.fa-image
 					td= v.rnum
 					td
-						button.btn-delete.btn.btn-danger.btn-sm 삭제
-						button.btn-update.btn.btn-success.btn-sm 수정
+						button.btn-delete.btn.btn-danger.btn-sm(data-id=`${v.id}`) 삭제
+						button.btn-update.btn.btn-success.btn-sm(data-id=`${v.id}`) 수정
