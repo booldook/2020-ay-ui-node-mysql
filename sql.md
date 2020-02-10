@@ -23,12 +23,20 @@ wdate = '2020-02-07 10:54:00',
 img = '',
 rnum = 0
 ~~~
+
 2. 조회/Read/SELECT
 ~~~sql
 SELECT * FROM board ORDER BY id DESC;
 ~~~
+
 3. 수정/Update/UPDATE
+~~~sql
+-- 수정 및 삭제는 WHERE 절이 꼭 들어가야 함.
+UPDATE board SET title="A", writer="B" WHERE id=4
+~~~
+
 4. 삭제/Delete/DELETE
 ~~~sql
+-- 수정 및 삭제는 WHERE 절이 꼭 들어가야 함.
 DELETE FROM board WHERE id=4;
 ~~~

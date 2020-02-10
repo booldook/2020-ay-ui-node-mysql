@@ -80,6 +80,19 @@ app.get("/board/delete/:id", (req, res) => {
 	});
 });
 
+app.post("/board/chg", (req, res) => {
+	let id = req.body.id;
+	let title = req.body.title;
+	let writer = req.body.writer;
+	let comment = req.body.comment;
+	let sql = 'UPDATE board SET title=?, writer=?, comment=? WHERE id=?';
+	let value = [title, writer, comment, id];
+	connect.execute(sql, value, (err, result, field) => {
+		if(err) res.json(err);
+		else res.redirect("/board/list");
+	});
+});
+
 /*
 1. req.query.id				http://127.0.0.1:3000/board/delete?id=14
 2. req.params.id			http://127.0.0.1:3000/board/delete/14
