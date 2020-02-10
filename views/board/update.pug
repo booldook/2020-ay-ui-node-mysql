@@ -1,0 +1,29 @@
+extends ../layout/board.pug
+block top
+	.jumbotron.my-3
+		h3 게시글 수정
+			small.ml-3.f-125.grey 게시글을 수정합니다.
+block content
+	form(method="post" name="boardForm" action="/board/chg")
+		input(type="hidden" name="id" value=`${result.id}`)
+		.border
+			.border-bottom.row.mx-0
+				.d-none.d-sm-block.col-sm-3.p-3 제목
+				.col-12.col-sm-9.p-1
+					input.form-control.f-1(type="text" name="title" placeholder="제목을 작성하세요" value=`${result.title}`)
+			.border-bottom.row.mx-0
+				.d-none.d-sm-block.col-sm-3.p-3 작성자
+				.col-12.col-sm-9.p-1
+					input.form-control.f-1(type="text" name="writer" placeholder="작성자를 작성하세요" value=`${result.writer}`)
+			.border-bottom.row.mx-0
+				.d-none.d-sm-block.col-sm-3.p-3 이미지
+				.col-12.col-sm-9.p-1
+					input.form-control-file.f-1(type="file" name="file")
+			.row.mx-0
+				.d-none.d-sm-block.col-sm-3.p-3 내용
+				.col-12.col-sm-9.p-1
+					textarea.form-control.f-1(name="comment" placeholder="내용을 작성하세요")= result.comment
+		.p-3.text-center
+			button.btn.btn-info(type="submit") 수정
+			button.btn.btn-danger(type="reset") 다시작성
+			button.btn.btn-warning(type="button" onclick="location.href='/board/list';") 리스트

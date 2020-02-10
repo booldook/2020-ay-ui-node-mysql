@@ -42,8 +42,13 @@ app.get('/board/write', (req, res) => {
 	res.render('board/write.pug');
 });
 
-app.get('/board/update', (req, res) => {
-	res.render('board/update.pug');
+app.get('/board/update/:id', (req, res) => {
+	let id = req.params.id;
+	let sql = 'SELECT * FROM board WHERE id='+id;
+	connect.execute(sql, (err, result, field) => {
+		// res.json(result[0]);
+		res.render('board/update.pug', {result: result[0]});
+	});
 });
 
 app.get('/board/view', (req, res) => {
@@ -65,3 +70,18 @@ app.post('/board/save/', (req, res) => {
 	});
 });
 
+
+app.get("/board/delete/:id", (req, res) => {
+	let id = req.params.id;
+	let sql = 'DELETE FROM board WHERE id='+id;
+	connect.execute(sql, (err, result, field) => {
+		if(err) res.json(err);
+		else res.redirect("/board/list");
+	});
+});
+
+/*
+1. req.query.id				http://127.0.0.1:3000/board/delete?id=14
+2. req.params.id			http://127.0.0.1:3000/board/delete/14
+3. req.body.id				POST방식 - <input name="id" value="14">
+*/
