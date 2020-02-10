@@ -4,15 +4,16 @@ block top
 		h3 게시글 리스트
 			small.ml-3.f-125.grey 게시글의 리스트를 보여줍니다
 block content
-	table.table.table-bordered.table-hover.text-center
+	table.table.table-bordered.table-hover.text-center#board-list
 		thead.thead-dark
 			tr
 				th 번호
 				th 제목
 				th 작성자
 				th 작성일
-				th 첨부파일
+				th 파일
 				th 조회수
+				th 관리
 		tbody
 			each v in result
 				tr
@@ -23,3 +24,6 @@ block content
 					td
 						i.fa.fa-image
 					td= v.rnum
+					td
+						button.btn-delete.btn.btn-danger.btn-sm 삭제
+						button.btn-update.btn.btn-success.btn-sm 수정

@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const mysql = require("mysql2");
+const moment = require("moment");
 const connect = mysql.createConnection({
 	host: "127.0.0.1",
 	user: "root",
@@ -30,6 +31,9 @@ app.get('/', (req, res) => {
 app.get('/board/list', (req, res) => {
 	let sql = 'SELECT * FROM board ORDER BY id DESC';
 	connect.execute(sql, (err, result, field) => {
+		for(var v of result) {
+			v.wdate = moment(v.wdate).format('YYYY-MM-DD');
+		}
 		res.render('board/list.pug', {result});
 	});
 });
@@ -53,10 +57,11 @@ app.post('/board/save/', (req, res) => {
 	/*
 	let sql = `INSERT INTO board SET title = '${title}', writer = '${writer}', comment = '${comment}'`;
 	*/
-	let sql = "INSERT INTO board SET title=?, writer=?, comment=?";
+	let sql = 'INSERT INTO board SET title=?, writer=?, comment=?';
 	let value = [title, writer, comment];
 	connect.execute(sql, value, (err, result, field) => {
-		res.redirect("/board/list");
+		if(err) res.json(err);
+		else res.redirect("/board/list");
 	});
 });
 
