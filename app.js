@@ -65,8 +65,8 @@ app.post("/api/save", (req, res) => {
 	let sql = "INSERT INTO board SET title=?, writer=?, comment=?";
 	let value = [title, writer, comment];
 	connect.execute(sql, value, (err, result) => {
-		if(err) res.json;
-		else res.result;
+		if(err) res.json(err);
+		else res.json(result);
 	});
 });
 
@@ -79,8 +79,8 @@ app.post("/api/update", (req, res) => {
 	let sql = "UPDATE board SET title=?, writer=?, comment=? WHERE id=?";
 	let value = [title, writer, comment, id];
 	connect.execute(sql, value, (err, result) => {
-		if(err) res.json;
-		else res.result;
+		if(err) res.json(err);
+		else res.json(result);
 	});
 });
 
