@@ -4,7 +4,13 @@ a, a:link, a:visited, a:hover, a:active {color: inherit;}
 
 .title-bar {font-size: 1.5rem; padding: 1rem 0; border-bottom: 1px solid #bbb;}
 
-.list-tb {width: 100%; border: 1px solid #aaa;}
+.list-tb {width: 100%; margin-top: 1rem; text-align: center;}
+.list-tb th, .list-tb td {border: 1px solid #ccc;}
+.list-tb th {background-color: rgb(19, 47, 88); color: #f8f8f8; 
+	padding: 0.5rem 0;}
+.list-tb td {padding: 0.5rem 0;}
+.list-tb tbody tr > :nth-child(2) {text-align: left; padding: 0.5rem;}
+
 .list-tb tr > :nth-child(1) {width: 10%;}
 .list-tb tr > :nth-child(3) {width: 12%;}
 .list-tb tr > :nth-child(4) {width: 12%;}

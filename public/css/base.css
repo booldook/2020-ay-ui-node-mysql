@@ -28,6 +28,8 @@ img {
 	vertical-align: bottom;
 }
 
+table {border-collapse: collapse;}
+
 .rel {position: relative;}
 .abs {position: absolute;}
 .fix {position: fixed;}
