@@ -7,16 +7,16 @@ block content
 	.border
 		.border-bottom.row.mx-0
 			.d-none.d-sm-block.col-sm-3.p-3 제목
-			.col-12.col-sm-9.p-2= title
-				span= ` [${rnum}]`
+			.col-12.col-sm-9.p-2= result.title
+				span= ` [${result.rnum}]`
 		.border-bottom.row.mx-0
 			.d-none.d-sm-block.col-sm-3.p-3 작성자
-			.col-12.col-sm-9.p-2= writer
+			.col-12.col-sm-9.p-2= result.writer
 		.border-bottom.row.mx-0
 			.d-none.d-sm-block.col-sm-3.p-3 작성일
-			.col-12.col-sm-9.p-2= wdate
+			.col-12.col-sm-9.p-2= result.wdate
 		.row.mx-0
 			.d-none.d-sm-block.col-sm-3.p-3 내용
-			.col-12.col-sm-9.p-2= comment
+			.col-12.col-sm-9.p-2= result.comment
 	.p-3.text-center
 		button.btn.btn-warning(type="button" onclick="location.href='/board/list';") 리스트

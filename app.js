@@ -27,6 +27,47 @@ app.get('/', (req, res) => {
 	res.render('index.pug');
 });
 
+/********* Router - AJAX *********/
+// 리스트
+app.get("/api/list", (req, res) => {
+	let sql = "SELECT * FROM board ORDER BY id DESC";
+	connect.execute(sql, (err, result) => {
+		if(err) res.json(err);
+		else res.json(result);
+	});
+});
+
+// 상세보기
+app.get("/api/view/:id", (req, res) => {
+	let id = req.params.id;
+	let sql = "SELECT * FROM board WHERE id="+id;
+	connect.execute(sql, (err, result) => {
+		if(err) res.json(err);
+		else res.json(result[0]);
+	});
+});
+
+// 삭제
+app.get("/api/delete/:id", (req, res) => {
+	let id = req.params.id;
+	let sql = "DELETE FROM board WHERE id="+id;
+	connect.execute(sql, (err, result) => {
+		if(err) res.json(err);
+		else res.json(result);
+	});
+});
+
+// 저장
+app.post("/api/save", (req, res) => {
+	
+});
+
+// 수정
+app.post("/api/update", (req, res) => {
+	
+});
+
+
 
 /********* Router - Board *********/
 // 리스트 보기
@@ -56,8 +97,12 @@ app.get('/board/update/:id', (req, res) => {
 });
 
 // 글상세 보기
-app.get('/board/view', (req, res) => {
-	res.render('board/view.pug');
+app.get('/board/view/:id', (req, res) => {
+	let id = req.params.id;
+	let sql = 'SELECT * FROM board WHERE id='+id;
+	connect.execute(sql, (err, result, field) => {
+		res.render('board/view.pug', {result: result[0]});
+	});
 });
 
 // 글 저장

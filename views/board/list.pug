@@ -18,7 +18,8 @@ block content
 			each v in result
 				tr
 					td= v.id
-					td.text-left= v.title
+					td.text-left
+						a(href=`/board/view/${v.id}`)= v.title
 					td= v.writer
 					td= v.wdate
 					td
