@@ -1,0 +1,22 @@
+extends ../layout/board.pug
+block top
+	.jumbotron.my-3
+		h3 게시글 상세보기
+			small.ml-3.f-125.grey 게시글 내용을 봅니다.
+block content
+	.border
+		.border-bottom.row.mx-0
+			.d-none.d-sm-block.col-sm-3.p-3 제목
+			.col-12.col-sm-9.p-2= title
+				span= ` [${rnum}]`
+		.border-bottom.row.mx-0
+			.d-none.d-sm-block.col-sm-3.p-3 작성자
+			.col-12.col-sm-9.p-2= writer
+		.border-bottom.row.mx-0
+			.d-none.d-sm-block.col-sm-3.p-3 작성일
+			.col-12.col-sm-9.p-2= wdate
+		.row.mx-0
+			.d-none.d-sm-block.col-sm-3.p-3 내용
+			.col-12.col-sm-9.p-2= comment
+	.p-3.text-center
+		button.btn.btn-warning(type="button" onclick="location.href='/board/list';") 리스트

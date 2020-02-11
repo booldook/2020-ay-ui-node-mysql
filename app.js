@@ -21,13 +21,15 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
 
-/********* Route *********/
+/********* Router - Root *********/
 app.use('/', express.static('./public'));
-
 app.get('/', (req, res) => {
 	res.render('index.pug');
 });
 
+
+/********* Router - Board *********/
+// 리스트 보기
 app.get('/board/list', (req, res) => {
 	let sql = 'SELECT * FROM board ORDER BY id DESC';
 	connect.execute(sql, (err, result, field) => {
@@ -38,10 +40,12 @@ app.get('/board/list', (req, res) => {
 	});
 });
 
+// 글작성 보기
 app.get('/board/write', (req, res) => {
 	res.render('board/write.pug');
 });
 
+// 글수정 보기
 app.get('/board/update/:id', (req, res) => {
 	let id = req.params.id;
 	let sql = 'SELECT * FROM board WHERE id='+id;
@@ -51,10 +55,12 @@ app.get('/board/update/:id', (req, res) => {
 	});
 });
 
+// 글상세 보기
 app.get('/board/view', (req, res) => {
 	res.render('board/view.pug');
 });
 
+// 글 저장
 app.post('/board/save/', (req, res) => {
 	let title = req.body.title;
 	let writer = req.body.writer;
@@ -70,7 +76,7 @@ app.post('/board/save/', (req, res) => {
 	});
 });
 
-
+// 글 삭제
 app.get("/board/delete/:id", (req, res) => {
 	let id = req.params.id;
 	let sql = 'DELETE FROM board WHERE id='+id;
@@ -80,6 +86,7 @@ app.get("/board/delete/:id", (req, res) => {
 	});
 });
 
+// 글 수정
 app.post("/board/chg", (req, res) => {
 	let id = req.body.id;
 	let title = req.body.title;

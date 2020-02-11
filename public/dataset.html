@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>DataSet</title>
+	<script src="/js/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+	<div class="pic" data-n="1">첫번째 그림</div>
+	<div class="pic" data-n="2">두번째 그림</div>
+	<div class="pic" data-n="5">다섯번째 그림</div>
+	<div class="pic" data-n="4">네번째 그림</div>
+	<div class="pic" data-n="6">여섯번째 그림</div>
+	<div class="pic" data-n="3">세번째 그림</div>
+	<script>
+		$(".pic").click(function(){
+			var n = $(this).data("n");
+			alert(n);
+		});
+	</script>
+</body>
+</html>

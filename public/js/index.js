@@ -10,3 +10,5 @@ $(".btn-update").click(function(){
 	var id = $(this).data("id");
 	location.href = "/board/update/"+id;
 });
+
+
