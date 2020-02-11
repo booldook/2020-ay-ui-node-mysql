@@ -59,12 +59,29 @@ app.get("/api/delete/:id", (req, res) => {
 
 // 저장
 app.post("/api/save", (req, res) => {
-	
+	let title = req.body.title;
+	let writer = req.body.writer;
+	let comment = req.body.comment;
+	let sql = "INSERT INTO board SET title=?, writer=?, comment=?";
+	let value = [title, writer, comment];
+	connect.execute(sql, value, (err, result) => {
+		if(err) res.json;
+		else res.result;
+	});
 });
 
 // 수정
 app.post("/api/update", (req, res) => {
-	
+	let id = req.body.id;
+	let title = req.body.title;
+	let writer = req.body.writer;
+	let comment = req.body.comment;
+	let sql = "UPDATE board SET title=?, writer=?, comment=? WHERE id=?";
+	let value = [title, writer, comment, id];
+	connect.execute(sql, value, (err, result) => {
+		if(err) res.json;
+		else res.result;
+	});
 });
 
 
