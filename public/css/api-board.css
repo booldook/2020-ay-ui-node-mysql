@@ -1,1 +1,5 @@
 a, a:link, a:visited, a:hover, a:active {color: inherit;}
+
+.wrapper {max-width: 900px; margin: auto;}
+
+.title-bar {font-size: 1.5rem; padding: 1rem 0; border-bottom: 1px solid #bbb;}
