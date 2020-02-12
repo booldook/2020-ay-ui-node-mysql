@@ -24,7 +24,7 @@
 	<div class="wrapper">
 		<div class="title-wrap">
 			<h4><i class="fa fa-edit mr-2"></i> API 게시판</h4>
-			<button id="bt-wr" class="btn btn-primary">글쓰기</button>
+			<button id="btWrite" class="btn btn-primary">글쓰기</button>
 		</div>
 		<div class="list-wrap">
 			<table class="list-tb tb">
@@ -55,13 +55,13 @@
 				</tbody>
 			</table>
 		</div>
-		<div id="popup-wr" class="popup-wrap">
+		<div id="popupWrite" class="popup-wrap">
 			<div class="popup">
 				<i class="popup-close fa fa-times"></i>
 				<div class="alert alert-info my-3">
 					<h3>게시글 작성<small class="ml-3 f-125 grey">게시글을 작성합니다.</small></h3>
 				</div>
-				<form method="post" name="boardForm" action="/board/save">
+				<form id="boardForm">
 					<div class="border">
 						<div class="border-bottom row mx-0">
 							<div class="d-none d-sm-block col-sm-3 p-3">제목</div>
@@ -89,7 +89,7 @@
 						</div>
 					</div>
 					<div class="p-3 text-center">
-						<button class="btn btn-primary" type="submit">저장</button>
+						<button id="btSave" class="btn btn-primary" type="button">저장</button>
 						<button class="btn btn-danger" type="reset">다시작성</button>
 					</div>
 				</form>
