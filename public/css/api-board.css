@@ -2,7 +2,7 @@ a, a:link, a:visited, a:hover, a:active {color: inherit;}
 
 .wrapper {max-width: 900px; margin: auto;}
 
-.title-bar {font-size: 1.5rem; padding: 1rem 0; border-bottom: 1px solid #bbb;}
+.title-wrap {font-size: 1.5rem; padding: 2rem 0 0.25rem 0; border-bottom: 1px solid #bbb; display: flex; justify-content: space-between; align-items: flex-start;}
 
 .list-tb {width: 100%; margin-top: 1rem; text-align: center;}
 .list-tb th, .list-tb td {border: 1px solid #ccc;}
@@ -18,6 +18,11 @@ a, a:link, a:visited, a:hover, a:active {color: inherit;}
 .list-tb tr > :nth-child(6) {width: 8%;}
 .list-tb tr > :nth-child(7) {width: 15%;}
 
+
+/* POPUP */
+.popup-wrap {background-color: rgba(0,0,0,0.7); width: 100%; height: 100vh; position: fixed; top: 0; left: 0; display: none;}
+.popup {position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); padding: 3rem 1.5rem 1.5rem 1.5rem; background-color: ivory; border: 1px solid #ccc; min-width: 600px;}
+.popup-close {font-size: 1.5rem; position: absolute; top: 1.5rem; right: 1.5rem;}
 
 /* Responsive */
 @media screen and (max-width: 992px) {

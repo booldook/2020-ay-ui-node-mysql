@@ -22,10 +22,9 @@
 		</div>
 	</div>
 	<div class="wrapper">
-		<div class="title-bar">
-			<h4>
-				<i class="fa fa-edit mr-2"></i> API 게시판
-			</h4>
+		<div class="title-wrap">
+			<h4><i class="fa fa-edit mr-2"></i> API 게시판</h4>
+			<button id="bt-wr" class="btn btn-primary">글쓰기</button>
 		</div>
 		<div class="list-wrap">
 			<table class="list-tb tb">
@@ -55,6 +54,46 @@
 					</tr>
 				</tbody>
 			</table>
+		</div>
+		<div id="popup-wr" class="popup-wrap">
+			<div class="popup">
+				<i class="popup-close fa fa-times"></i>
+				<div class="alert alert-info my-3">
+					<h3>게시글 작성<small class="ml-3 f-125 grey">게시글을 작성합니다.</small></h3>
+				</div>
+				<form method="post" name="boardForm" action="/board/save">
+					<div class="border">
+						<div class="border-bottom row mx-0">
+							<div class="d-none d-sm-block col-sm-3 p-3">제목</div>
+							<div class="col-12 col-sm-9 p-1">
+								<input class="form-control f-1" type="text" name="title" placeholder="제목을 작성하세요">
+							</div>
+						</div>
+						<div class="border-bottom row mx-0">
+							<div class="d-none d-sm-block col-sm-3 p-3">작성자</div>
+							<div class="col-12 col-sm-9 p-1">
+								<input class="form-control f-1" type="text" name="writer" placeholder="작성자를 작성하세요">
+							</div>
+						</div>
+						<div class="border-bottom row mx-0">
+							<div class="d-none d-sm-block col-sm-3 p-3">이미지</div>
+							<div class="col-12 col-sm-9 p-1">
+								<input class="form-control-file f-1" type="file" name="file">
+							</div>
+						</div>
+						<div class="row mx-0">
+							<div class="d-none d-sm-block col-sm-3 p-3">내용</div>
+							<div class="col-12 col-sm-9 p-1">
+								<textarea class="form-control f-1" name="comment" placeholder="내용을 작성하세요"></textarea>
+							</div>
+						</div>
+					</div>
+					<div class="p-3 text-center">
+						<button class="btn btn-primary" type="submit">저장</button>
+						<button class="btn btn-danger" type="reset">다시작성</button>
+					</div>
+				</form>
+			</div>
 		</div>
 	</div>
 	<script src="./js/api-board.js"></script>
