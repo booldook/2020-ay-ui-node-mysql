@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="./css/base.css">
 	<link rel="stylesheet" href="./css/api-board.css">
 	<script src="./js/jquery-3.4.1.min.js"></script>
+	<script src="./js/moment.min.js"></script>
 </head>
 <body>
 	<div class="header d-flex justify-content-between bg-dark text-light">
@@ -82,6 +83,35 @@
 						<button class="btn btn-danger" type="reset">다시작성</button>
 					</div>
 				</form>
+			</div>
+		</div>
+		<div id="popupView" class="popup-wrap">
+			<div class="popup">
+				<i class="popup-close fa fa-times"></i>
+				<div class="alert alert-info my-3">
+					<h3>게시글 보기<small class="ml-3 f-125 grey">선택된 게시글을 살펴봅니다.</small></h3>
+				</div>
+				<div class="border">
+					<div class="border-bottom row mx-0">
+						<div class="d-none d-sm-block col-sm-3 p-3">제목</div>
+						<div class="col-12 col-sm-9 p-2">아버지를 아버지라<span> [0]</span></div>
+					</div>
+					<div class="border-bottom row mx-0">
+						<div class="d-none d-sm-block col-sm-3 p-3">작성자</div>
+						<div class="col-12 col-sm-9 p-2">sdf</div>
+					</div>
+					<div class="border-bottom row mx-0">
+						<div class="d-none d-sm-block col-sm-3 p-3">작성일</div>
+						<div class="col-12 col-sm-9 p-2">Wed Feb 12 2020 11:02:35 GMT+0900 (GMT+09:00)</div>
+					</div>
+					<div class="row mx-0">
+						<div class="d-none d-sm-block col-sm-3 p-3">내용</div>
+						<div class="col-12 col-sm-9 p-2">ㅇㅇㅇㅇㅇ</div>
+					</div>
+				</div>
+				<div class="p-3 text-center">
+					<button class="btn btn-warning" type="button" onclick="location.href='/board/list';">리스트</button>
+				</div>
 			</div>
 		</div>
 	</div>

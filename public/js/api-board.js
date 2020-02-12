@@ -52,16 +52,28 @@ function listMaker(res) {
 	for(var i in res) {
 		html += '<tr>';
 		html += '<td>'+res[i].id+'</td>';
-		html += '<td>'+res[i].title+'</td>';
+		html += '<td onclick="onView('+res[i].id+')">'+res[i].title+'</td>';
 		html += '<td>'+res[i].writer+'</td>';
-		html += '<td>'+res[i].wdate+'</td>';
+		html += '<td>'+moment(res[i].wdate).format('YYYY-MM-DD')+'</td>';
 		html += '<td><i class="fa fa-file"></i></td>';
 		html += '<td>'+res[i].rnum+'</td>';
 		html += '<td>';
-		html += '<button class="btn btn-danger btn-sm">삭제</button> ';
+		html += '<button class="btn btn-danger btn-sm" onclick="onDelete('+res[i].id+');">삭제</button> ';
 		html += '<button class="btn btn-success btn-sm">수정</button>';
 		html += '</td>';
 		html += '</tr>';
 	}
 	$(".list-tb").find("tbody").html(html);
+}
+
+/* 삭제 로직 */
+function onDelete(n) {
+	if(confirm("진심 삭제?")) {
+		$.ajax({
+			url: "/api/delete/"+n,
+			type: "get",
+			success: init,
+			err: err
+		});
+	}
 }
