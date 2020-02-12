@@ -48,17 +48,20 @@ function init() {
 	});
 }
 function listMaker(res) {
-/* <tr>
-<td>1</td>
-<td>제목입니다.</td>
-<td>작성자</td>
-<td>2020-02-11</td>
-<td><i class="fa fa-file"></i></td>
-<td>0</td>
-<td>
-<button class="btn btn-danger btn-sm">삭제</button>
-<button class="btn btn-success btn-sm">수정</button>
-</td>
-</tr>
-	$(".list-tb").html(); */
+	var html = '';
+	for(var i in res) {
+		html += '<tr>';
+		html += '<td>'+res[i].id+'</td>';
+		html += '<td>'+res[i].title+'</td>';
+		html += '<td>'+res[i].writer+'</td>';
+		html += '<td>'+res[i].wdate+'</td>';
+		html += '<td><i class="fa fa-file"></i></td>';
+		html += '<td>'+res[i].rnum+'</td>';
+		html += '<td>';
+		html += '<button class="btn btn-danger btn-sm">삭제</button> ';
+		html += '<button class="btn btn-success btn-sm">수정</button>';
+		html += '</td>';
+		html += '</tr>';
+	}
+	$(".list-tb").find("tbody").html(html);
 }
