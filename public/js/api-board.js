@@ -67,13 +67,30 @@ function listMaker(res) {
 }
 
 /* 삭제 로직 */
-function onDelete(n) {
+function onDelete(id) {
 	if(confirm("진심 삭제?")) {
 		$.ajax({
-			url: "/api/delete/"+n,
+			url: "/api/delete/"+id,
 			type: "get",
 			success: init,
 			err: err
 		});
 	}
+}
+
+/* 상세보기 로직 */
+function onView(id) {
+	$.ajax({
+		url: "/api/view/"+id,
+		type: "get",
+		success: function(res) {
+			$(".view-title").html(res.title);
+			$(".view-rnum").html(res.rnum);
+			$(".view-writer").html(res.writer);
+			$(".view-comment").html(res.comment);
+			$(".view-wdate").html(moment(res.wdate).format('YYYY-MM-DD HH:mm:ss'));
+			$("#popupView").stop().fadeIn(500);
+		},
+		err: err
+	});
 }

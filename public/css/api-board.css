@@ -9,7 +9,7 @@ a, a:link, a:visited, a:hover, a:active {color: inherit;}
 .list-tb th {background-color: rgb(19, 47, 88); color: #f8f8f8; 
 	padding: 0.5rem 0;}
 .list-tb td {padding: 0.5rem 0;}
-.list-tb tbody tr > :nth-child(2) {text-align: left; padding: 0.5rem;}
+.list-tb tbody tr > :nth-child(2) {text-align: left; padding: 0.5rem; cursor: pointer;}
 
 .list-tb tr > :nth-child(1) {width: 10%;}
 .list-tb tr > :nth-child(3) {width: 12%;}
